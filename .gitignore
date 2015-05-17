@@ -17,3 +17,4 @@
 
 # Ignore all logfiles and tempfiles.
 /spring/*.pid
+spring/*.pid

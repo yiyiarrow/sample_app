@@ -1,6 +1,6 @@
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
-  timeout 15
-  preload_app true
+timeout 15
+preload_app true
 
 before_fork do |server, worker| 
   Signal.trap 'TERM' do
@@ -10,7 +10,7 @@ before_fork do |server, worker|
 
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect! 
 end
-￼￼
+
 after_fork do |server, worker| 
   Signal.trap 'TERM' do
     msg  = 'Unicorn worker intercepting TERM and doing nothing. '
